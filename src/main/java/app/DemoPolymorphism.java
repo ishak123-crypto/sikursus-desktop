@@ -11,8 +11,13 @@ public class DemoPolymorphism {
     public static void main(String[] args) {
         List<Orang> daftar = new ArrayList<>();
         
+<<<<<<< HEAD
         // Memasukkan data valid ke dalam list dengan 6 parameter String (nim, nama, jenisKelamin, prodi, noHp, email)
         daftar.add(new Peserta("2924020", "Abdul Reyhan Syaidina", "L", "Informatika", "081234567890", "abdul@email.com"));
+=======
+        // Memasukkan data valid ke dalam list
+        daftar.add(new Peserta(1, "Abdul Reyhan Syaidina", "081234567890", "2924020", "Informatika"));
+>>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
         daftar.add(new Instruktur(2, "Dina Pratama", "081211110001", "Java Desktop"));
         daftar.add(new Admin(3, "Budi Santoso", "081199998888", "Superadmin"));
 
