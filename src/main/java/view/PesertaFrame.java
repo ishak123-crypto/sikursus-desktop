@@ -1,7 +1,6 @@
 package view;
 
 import dao.PesertaDAO;
-import model.Peserta;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import model.Peserta;
+import report.reportservice;
 
 public class PesertaFrame extends javax.swing.JFrame {
 
@@ -62,7 +63,7 @@ public class PesertaFrame extends javax.swing.JFrame {
 
         // Rata tengah untuk kolom ID dan JK
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( javax.swing.JLabel.CENTER );
+        centerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER);
         tblPeserta.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         tblPeserta.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
     }
@@ -193,7 +194,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPeserta = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SIKURSUS Desktop - Master Data Peserta");
 
         // Background Utama (Soft Slate)
@@ -287,6 +288,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnSimpan.setText("Simpan");
         btnSimpan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpanActionPerformed(evt);
             }
@@ -298,6 +300,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnUbah.setText("Ubah");
         btnUbah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
             }
@@ -309,6 +312,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnHapus.setText("Hapus");
         btnHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
@@ -320,6 +324,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnReset.setText("Reset");
         btnReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
@@ -331,6 +336,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnCetaksemua.setText("Cetak Semua");
         btnCetaksemua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCetaksemua.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCetaksemuaActionPerformed(evt);
             }
@@ -432,16 +438,18 @@ public class PesertaFrame extends javax.swing.JFrame {
         btnCari.setText("Cari");
         btnCari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCari.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCariActionPerformed(evt);
             }
         });
 
         tblPeserta.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
-            new String [] {"ID", "NIM", "Nama", "JK", "Prodi", "No. HP", "Email"}
+            new Object[][]{},
+            new String[]{"ID", "NIM", "Nama", "JK", "Prodi", "No. HP", "Email"}
         ));
         tblPeserta.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPesertaMouseClicked(evt);
             }
@@ -639,22 +647,7 @@ public class PesertaFrame extends javax.swing.JFrame {
     }
 
     private void btnCetaksemuaActionPerformed(java.awt.event.ActionEvent evt) {
-        try {
-            List<Peserta> list = dao.findAll();
-            fillTable(list);
-            System.out.println("=== DAFTAR SEMUA PESERTA ===");
-            for (Peserta p : list) {
-                System.out.println(p.getId() + " | " + p.getNim() + " | " + p.getNama() + " | " + p.getProdi());
-            }
-            JOptionPane.showMessageDialog(this, "Seluruh data peserta (" + list.size() + " baris) berhasil ditampilkan.");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Gagal memuat data: " + ex.getMessage(),
-                "Database Error",
-                JOptionPane.ERROR_MESSAGE
-            );
-        }
+        reportservice.tampilkanLaporanPeserta();
     }
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {
@@ -688,6 +681,7 @@ public class PesertaFrame extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PesertaFrame().setVisible(true);
             }
