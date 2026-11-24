@@ -1,12 +1,10 @@
 package view;
 
-<<<<<<< HEAD
 import dao.PesertaDAO;
 import model.Peserta;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -14,76 +12,10 @@ import javax.swing.JOptionPane;
 public class FormPendaftaranKursus extends javax.swing.JFrame {
 
     private ButtonGroup groupJenis;
-=======
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.util.Locale;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-
-
-public class FormPendaftaranKursus extends JFrame {
-
-    private final Color warnaLatar = new Color(248, 250, 252);
-    // Warna header dan tombol proses diubah menjadi nuansa hijau
-    private final Color warnaHeader = new Color(40, 167, 69); 
-    private final Color warnaProses = new Color(33, 136, 56); 
-    private final Color warnaReset = new Color(255, 51, 51);
-
-    private JPanel panelUtama;
-    private JPanel panelHeader;
-    private JPanel panelForm;
-    private JPanel panelJenis;
-    private JPanel panelFasilitas;
-    private JPanel panelTombol;
-
-    private JLabel lblJudul;
-    private JLabel lblNama;
-    private JLabel lblKodeAkses;
-    private JLabel lblJenis;
-    private JLabel lblKursus;
-    private JLabel lblFasilitas;
-    private JLabel lblRingkasan;
-
-    private JTextField txtNama;
-    private JPasswordField txtKodeAkses;
-    private JRadioButton rbMahasiswa;
-    private JRadioButton rbUmum;
-    private ButtonGroup groupJenis;
-    private JComboBox<String> cmbKursus;
-    private JCheckBox cbModul;
-    private JCheckBox cbSertifikat;
-    private JCheckBox cbRekaman;
-    private JTextArea txtRingkasan;
-    private JScrollPane scrollRingkasan;
-    private JButton btnProses;
-    private JButton btnReset;
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
 
     public FormPendaftaranKursus() {
         initComponents();
 
-<<<<<<< HEAD
         groupJenis = new ButtonGroup();
         groupJenis.add(rbLaki);
         groupJenis.add(rbPerempuan);
@@ -102,175 +34,15 @@ public class FormPendaftaranKursus extends JFrame {
         cmbKursus.addItem("Dasar-Dasar Pemrograman");
     }
 
-    // Method mengambil jenis kelamin peserta
     private String getJenisKelamin() {
         if (rbLaki.isSelected()) {
             return "L";
         } else if (rbPerempuan.isSelected()) {
             return "P";
-=======
-        groupJenis.add(rbMahasiswa);
-        groupJenis.add(rbUmum);
-
-        txtRingkasan.setEditable(false);
-        txtRingkasan.setLineWrap(false);
-        getRootPane().setDefaultButton(btnProses);
-
-        setMinimumSize(new Dimension(760, 650));
-        setSize(new Dimension(920, 720));
-        setLocationRelativeTo(null);
-    }
-
-    private void initComponents() {
-        panelUtama = new JPanel(new BorderLayout());
-        panelHeader = new JPanel(new BorderLayout());
-        panelForm = new JPanel(new GridBagLayout());
-        panelJenis = new JPanel(new FlowLayout(FlowLayout.LEFT, 14, 0));
-        panelFasilitas = new JPanel(new FlowLayout(FlowLayout.LEFT, 14, 0));
-        panelTombol = new JPanel(new FlowLayout(FlowLayout.CENTER, 24, 0));
-
-        lblJudul = new JLabel("Form Pendaftaran Kursus", SwingConstants.CENTER);
-        lblNama = new JLabel("Nama Peserta");
-        lblKodeAkses = new JLabel("Kode Akses");
-        lblJenis = new JLabel("Jenis Peserta");
-        lblKursus = new JLabel("Kursus");
-        lblFasilitas = new JLabel("Fasilitas");
-        lblRingkasan = new JLabel("Ringkasan");
-
-        txtNama = new JTextField();
-        txtKodeAkses = new JPasswordField();
-        rbMahasiswa = new JRadioButton("Mahasiswa");
-        rbUmum = new JRadioButton("Umum");
-        groupJenis = new ButtonGroup();
-
-        cmbKursus = new JComboBox<String>(new String[] {
-            "-- Pilih Kursus --",
-            "Java Desktop",
-            "Data Science",
-            "Web Programming",
-            "UI/UX Design"
-        });
-
-        cbModul = new JCheckBox("Modul Cetak");
-        cbSertifikat = new JCheckBox("Sertifikat");
-        cbRekaman = new JCheckBox("Akses Rekaman");
-
-        txtRingkasan = new JTextArea(11, 20);
-        scrollRingkasan = new JScrollPane(txtRingkasan);
-
-        btnProses = new JButton("Proses");
-        btnReset = new JButton("Reset");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("SIKURSUS Desktop - Pendaftaran Kursus");
-
-        panelUtama.setBackground(warnaLatar);
-        panelHeader.setBackground(warnaHeader);
-        panelForm.setBackground(warnaLatar);
-        panelJenis.setBackground(warnaLatar);
-        panelFasilitas.setBackground(warnaLatar);
-        panelTombol.setBackground(warnaLatar);
-
-        lblJudul.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        lblJudul.setForeground(Color.WHITE);
-        lblJudul.setPreferredSize(new Dimension(100, 70));
-        panelHeader.add(lblJudul, BorderLayout.CENTER);
-
-        rbMahasiswa.setBackground(warnaLatar);
-        rbUmum.setBackground(warnaLatar);
-        cbModul.setBackground(warnaLatar);
-        cbSertifikat.setBackground(warnaLatar);
-        cbRekaman.setBackground(warnaLatar);
-
-        panelJenis.add(rbMahasiswa);
-        panelJenis.add(rbUmum);
-
-        panelFasilitas.add(cbModul);
-        panelFasilitas.add(cbSertifikat);
-        panelFasilitas.add(cbRekaman);
-
-        btnProses.setBackground(warnaProses);
-        btnProses.setForeground(Color.WHITE);
-        btnProses.setFocusPainted(false);
-        btnProses.setPreferredSize(new Dimension(130, 38));
-        btnProses.addActionListener(evt -> btnProsesActionPerformed());
-
-        btnReset.setBackground(warnaReset);
-        btnReset.setForeground(Color.WHITE);
-        btnReset.setFocusPainted(false);
-        btnReset.setPreferredSize(new Dimension(130, 38));
-        btnReset.addActionListener(evt -> btnResetActionPerformed());
-
-        panelTombol.add(btnProses);
-        panelTombol.add(btnReset);
-
-        txtNama.setPreferredSize(new Dimension(420, 36));
-        txtKodeAkses.setPreferredSize(new Dimension(420, 36));
-        cmbKursus.setPreferredSize(new Dimension(420, 36));
-        txtKodeAkses.setToolTipText("Kode akses demo praktikum: PBO2026");
-
-        txtRingkasan.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 13));
-        txtRingkasan.setBackground(Color.WHITE);
-        scrollRingkasan.setPreferredSize(new Dimension(520, 215));
-
-        panelForm.setBorder(BorderFactory.createEmptyBorder(24, 24, 24, 24));
-
-        addRow(0, lblNama, txtNama, 0.0);
-        addRow(1, lblKodeAkses, txtKodeAkses, 0.0);
-        addRow(2, lblJenis, panelJenis, 0.0);
-        addRow(3, lblKursus, cmbKursus, 0.0);
-        addRow(4, lblFasilitas, panelFasilitas, 0.0);
-        addRow(5, lblRingkasan, scrollRingkasan, 1.0);
-
-        GridBagConstraints tombol = new GridBagConstraints();
-        tombol.gridx = 1;
-        tombol.gridy = 6;
-        tombol.weightx = 1.0;
-        tombol.fill = GridBagConstraints.HORIZONTAL;
-        tombol.anchor = GridBagConstraints.CENTER;
-        tombol.insets = new Insets(20, 8, 0, 0);
-        panelForm.add(panelTombol, tombol);
-
-        panelUtama.add(panelHeader, BorderLayout.NORTH);
-        panelUtama.add(panelForm, BorderLayout.CENTER);
-        setContentPane(panelUtama);
-    }
-
-    private void addRow(int row, JLabel label, java.awt.Component component, double weightY) {
-        GridBagConstraints cLabel = new GridBagConstraints();
-        cLabel.gridx = 0;
-        cLabel.gridy = row;
-        cLabel.anchor = GridBagConstraints.NORTHWEST;
-        cLabel.insets = new Insets(9, 0, 11, 16);
-        cLabel.ipadx = 18;
-        panelForm.add(label, cLabel);
-
-        GridBagConstraints cField = new GridBagConstraints();
-        cField.gridx = 1;
-        cField.gridy = row;
-        cField.weightx = 1.0;
-        cField.weighty = weightY;
-        cField.fill = weightY > 0 ? GridBagConstraints.BOTH : GridBagConstraints.HORIZONTAL;
-        cField.anchor = GridBagConstraints.NORTHWEST;
-        cField.insets = new Insets(0, 0, 11, 0);
-        panelForm.add(component, cField);
-    }
-
-    private String getJenisPeserta() {
-        if (rbMahasiswa.isSelected()) {
-            return "Mahasiswa";
-        }
-        if (rbUmum.isSelected()) {
-            return "Umum";
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
         }
         return "";
     }
 
-<<<<<<< HEAD
-    // Method menentukan biaya dasar kursus
-=======
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
     private double hitungBiayaDasar(String kursus) {
         switch (kursus) {
             case "Java Desktop":
@@ -281,22 +53,15 @@ public class FormPendaftaranKursus extends JFrame {
                 return 450_000;
             case "UI/UX Design":
                 return 400_000;
-<<<<<<< HEAD
             case "Database MySQL":
                 return 450_000;
             case "Dasar-Dasar Pemrograman":
                 return 350_000;
-=======
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             default:
                 return 0;
         }
     }
 
-<<<<<<< HEAD
-    // Method menghitung biaya fasilitas tambahan
-=======
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
     private double hitungBiayaFasilitas() {
         double total = 0;
         if (cbModul.isSelected()) {
@@ -311,16 +76,11 @@ public class FormPendaftaranKursus extends JFrame {
         return total;
     }
 
-<<<<<<< HEAD
-    // Method menyusun ringkasan fasilitas dengan Array dan Loop
-=======
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
     private String buatRingkasanFasilitas() {
         String[] fasilitasDipilih = new String[3];
         int jumlah = 0;
 
         if (cbModul.isSelected()) {
-<<<<<<< HEAD
             fasilitasDipilih[jumlah] = "Modul Cetak (+Rp50.000)";
             jumlah++;
         }
@@ -330,17 +90,6 @@ public class FormPendaftaranKursus extends JFrame {
         }
         if (cbRekaman.isSelected()) {
             fasilitasDipilih[jumlah] = "Akses Rekaman (+Rp40.000)";
-=======
-            fasilitasDipilih[jumlah] = "Modul Cetak";
-            jumlah++;
-        }
-        if (cbSertifikat.isSelected()) {
-            fasilitasDipilih[jumlah] = "Sertifikat";
-            jumlah++;
-        }
-        if (cbRekaman.isSelected()) {
-            fasilitasDipilih[jumlah] = "Akses Rekaman";
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             jumlah++;
         }
 
@@ -355,8 +104,6 @@ public class FormPendaftaranKursus extends JFrame {
         return hasil.toString();
     }
 
-<<<<<<< HEAD
-    // Method mengosongkan input form
     private void clearForm() {
         txtNim.setText("");
         txtNama.setText("");
@@ -416,10 +163,7 @@ public class FormPendaftaranKursus extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIKURSUS Desktop - Form Pendaftaran Kursus");
 
-        // Background Utama (Soft Slate)
         jPanel1.setBackground(new Color(241, 245, 249));
-
-        // Header Panel (Dark Navy Blue)
         jPanel2.setBackground(new Color(30, 41, 59));
 
         jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 24));
@@ -443,7 +187,6 @@ public class FormPendaftaranKursus extends JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        // Panel Form Kiri (Putih dengan Border Halus)
         jPanelForm.setBackground(new Color(255, 255, 255));
         jPanelForm.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(226, 232, 240), 1),
@@ -639,7 +382,6 @@ public class FormPendaftaranKursus extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        // Panel Ringkasan Kanan (Putih dengan Border Halus)
         jPanelRingkasan.setBackground(new Color(255, 255, 255));
         jPanelRingkasan.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(226, 232, 240), 1),
@@ -673,7 +415,6 @@ public class FormPendaftaranKursus extends JFrame {
                 .addComponent(jScrollPane1))
         );
 
-        // Layout Utama (Side-by-Side)
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -714,225 +455,7 @@ public class FormPendaftaranKursus extends JFrame {
     private void rbLakiActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {
-        int jawab = JOptionPane.showConfirmDialog(
-            this,
-            "Kosongkan seluruh input dan ringkasan?",
-            "Konfirmasi Reset",
-            JOptionPane.YES_NO_OPTION
-        );
-=======
-    private boolean validasiInput() {
-        String nama = txtNama.getText().trim();
-        String kode = new String(txtKodeAkses.getPassword());
-
-        if (nama.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Nama peserta wajib diisi.",
-                    "Validasi",
-                    JOptionPane.WARNING_MESSAGE);
-            txtNama.requestFocus();
-            return false;
-        }
-
-        if (!kode.equals("PBO2026")) {
-            JOptionPane.showMessageDialog(this,
-                    "Kode akses demo salah.",
-                    "Validasi",
-                    JOptionPane.WARNING_MESSAGE);
-            txtKodeAkses.requestFocus();
-            return false;
-        }
-
-        if (!rbMahasiswa.isSelected() && !rbUmum.isSelected()) {
-            JOptionPane.showMessageDialog(this,
-                    "Pilih jenis peserta.",
-                    "Validasi",
-                    JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-
-        if (cmbKursus.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this,
-                    "Pilih kursus terlebih dahulu.",
-                    "Validasi",
-                    JOptionPane.WARNING_MESSAGE);
-            cmbKursus.requestFocus();
-            return false;
-        }
-
-        return true;
-    }
-
-    private void btnProsesActionPerformed() {
-        if (!validasiInput()) {
-            return;
-        }
-
-        String nama = txtNama.getText().trim();
-        String jenis = getJenisPeserta();
-        String kursus = cmbKursus.getSelectedItem().toString();
-
-        double biayaDasar = hitungBiayaDasar(kursus);
-        double diskon = jenis.equals("Mahasiswa") ? biayaDasar * 0.10 : 0;
-        double biayaFasilitas = hitungBiayaFasilitas();
-        double total = biayaDasar - diskon + biayaFasilitas;
-
-        String fasilitas = buatRingkasanFasilitas();
-
-        String ringkasan =
-                "PENDAFTARAN KURSUS\n"
-                + "================================\n"
-                + "Nama            : " + nama + "\n"
-                + "Jenis Peserta   : " + jenis + "\n"
-                + "Kursus          : " + kursus + "\n"
-                + "Biaya Dasar     : " + formatRupiah(biayaDasar) + "\n"
-                + "Diskon          : " + formatRupiah(diskon) + "\n"
-                + "Fasilitas:\n" + fasilitas
-                + "Biaya Fasilitas : " + formatRupiah(biayaFasilitas) + "\n"
-                + "================================\n"
-                + "TOTAL           : " + formatRupiah(total);
-
-        txtRingkasan.setText(ringkasan);
-        txtRingkasan.setCaretPosition(0);
-
-        JOptionPane.showMessageDialog(this,
-                "Pendaftaran berhasil diproses.",
-                "Berhasil",
-                JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private void btnResetActionPerformed() {
-        int jawab = JOptionPane.showConfirmDialog(
-                this,
-                "Kosongkan seluruh input?",
-                "Konfirmasi Reset",
-                JOptionPane.YES_NO_OPTION);
-
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
-        if (jawab == JOptionPane.YES_OPTION) {
-            resetForm();
-        }
-    }
-
-<<<<<<< HEAD
-    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {
-        String nim = txtNim.getText().trim();
-        String nama = txtNama.getText().trim();
-        String prodi = txtProdi.getText().trim();
-        String noHp = txtHp.getText().trim();
-        String email = txtEmail.getText().trim();
-        String kode = txtKodeAkses.getText().trim();
-        String jenisKelamin = getJenisKelamin();
-
-        // 1. Validasi input wajib
-        if (nim.isEmpty() || nama.isEmpty() || prodi.isEmpty() || jenisKelamin.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                this,
-                "NIM, Nama, Jenis Kelamin, dan Program Studi wajib diisi.",
-                "Validasi",
-                JOptionPane.WARNING_MESSAGE
-            );
-            return;
-        }
-
-        // 2. Validasi Nomor HP & Email
-        if (!noHp.isEmpty() && !noHp.matches("\\d+")) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Nomor HP hanya boleh berisi angka.",
-                "Validasi",
-                JOptionPane.WARNING_MESSAGE
-            );
-            txtHp.requestFocus();
-            return;
-        }
-
-        if (!email.isEmpty() && !email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Format email tidak valid.",
-                "Validasi",
-                JOptionPane.WARNING_MESSAGE
-            );
-            txtEmail.requestFocus();
-            return;
-        }
-
-        // 3. Validasi Kode Akses (Mendukung PBO2026 atau PB02026)
-        if (!kode.isEmpty() && !kode.equals("PBO2026") && !kode.equals("PB02026")) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Kode akses demo salah (Gunakan: PBO2026).",
-                "Validasi",
-                JOptionPane.WARNING_MESSAGE
-            );
-            txtKodeAkses.requestFocus();
-            return;
-        }
-
-        // 4. Bentuk object Peserta menggunakan setter & simpan melalui PesertaDAO
-        Peserta peserta = new Peserta();
-        peserta.setNim(nim);
-        peserta.setNama(nama);
-        peserta.setJenisKelamin(jenisKelamin);
-        peserta.setProdi(prodi);
-        peserta.setNoHp(noHp);
-        peserta.setEmail(email);
-
-        PesertaDAO dao = new PesertaDAO();
-
-        try {
-            boolean berhasil = dao.insert(peserta);
-            if (berhasil) {
-                String kursus = cmbKursus.getSelectedIndex() > 0 ? cmbKursus.getSelectedItem().toString() : "-";
-                double biayaDasar = hitungBiayaDasar(kursus);
-                double diskon = !nim.isEmpty() ? biayaDasar * 0.10 : 0;
-                double biayaFasilitas = hitungBiayaFasilitas();
-                double total = biayaDasar - diskon + biayaFasilitas;
-                String fasilitas = buatRingkasanFasilitas();
-
-                String ringkasan = "========================================\n"
-                        + "      DATA PESERTA & PENDAFTARAN        \n"
-                        + "========================================\n"
-                        + "NIM             : " + nim + "\n"
-                        + "Nama            : " + nama + "\n"
-                        + "Jenis Kelamin   : " + (jenisKelamin.equals("L") ? "Laki-laki (L)" : "Perempuan (P)") + "\n"
-                        + "Program Studi   : " + prodi + "\n"
-                        + "Nomor HP        : " + (noHp.isEmpty() ? "-" : noHp) + "\n"
-                        + "Email           : " + (email.isEmpty() ? "-" : email) + "\n"
-                        + "----------------------------------------\n"
-                        + "Kursus          : " + kursus + "\n"
-                        + "Biaya Dasar     : Rp" + String.format("%,.0f", biayaDasar) + "\n"
-                        + "Diskon (10%)    : Rp" + String.format("%,.0f", diskon) + "\n"
-                        + "----------------------------------------\n"
-                        + "Fasilitas Tambahan:\n" + fasilitas
-                        + "Biaya Fasilitas : Rp" + String.format("%,.0f", biayaFasilitas) + "\n"
-                        + "========================================\n"
-                        + "TOTAL BIAYA     : Rp" + String.format("%,.0f", total) + "\n"
-                        + "========================================";
-
-                txtRingkasan.setText(ringkasan);
-
-                JOptionPane.showMessageDialog(this, "Data peserta berhasil disimpan.");
-                clearForm();
-            } else {
-                JOptionPane.showMessageDialog(
-                    this,
-                    "Data tidak tersimpan.",
-                    "Informasi",
-                    JOptionPane.WARNING_MESSAGE
-                );
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Gagal menyimpan data:\n" + e.getMessage(),
-                "Database Error",
-                JOptionPane.ERROR_MESSAGE
-            );
-            e.printStackTrace();
-        }
+    private void cmbKursusActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     private void cbSertifikatActionPerformed(java.awt.event.ActionEvent evt) {
@@ -941,25 +464,73 @@ public class FormPendaftaranKursus extends JFrame {
     private void cbRekamanActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
-    private void cmbKursusActionPerformed(java.awt.event.ActionEvent evt) {
-    }
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {
+        String nim = txtNim.getText().trim();
+        String nama = txtNama.getText().trim();
+        String kodeAkses = txtKodeAkses.getText().trim();
+        String jk = getJenisKelamin();
+        String prodi = txtProdi.getText().trim();
+        String hp = txtHp.getText().trim();
+        String email = txtEmail.getText().trim();
+        String kursus = cmbKursus.getSelectedItem() != null ? cmbKursus.getSelectedItem().toString() : "";
 
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormPendaftaranKursus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        if (nim.isEmpty() || nama.isEmpty() || jk.isEmpty() || prodi.isEmpty() || hp.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Lengkapi seluruh data diri peserta terlebih dahulu.", "Validasi", JOptionPane.WARNING_MESSAGE);
+            return;
         }
 
-        java.awt.EventQueue.invokeLater(() -> new FormPendaftaranKursus().setVisible(true));
+        if (cmbKursus.getSelectedIndex() <= 0 || kursus.startsWith("--")) {
+            JOptionPane.showMessageDialog(this, "Silakan pilih kursus terlebih dahulu.", "Validasi", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (!kodeAkses.equals("PBO2026") && !kodeAkses.equals("PB02026")) {
+            JOptionPane.showMessageDialog(this, "Kode akses tidak valid.", "Validasi", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        double biayaDasar = hitungBiayaDasar(kursus);
+        double biayaFasilitas = hitungBiayaFasilitas();
+        double total = biayaDasar + biayaFasilitas;
+        String fasilitas = buatRingkasanFasilitas();
+
+        try {
+            Peserta peserta = new Peserta(nim, nama, jk, prodi, hp, email);
+            PesertaDAO dao = new PesertaDAO();
+            dao.insert(peserta);
+
+            txtRingkasan.setText(
+                "=== BUKTI PENDAFTARAN KURSUS ===\n"
+                + "NIM       : " + nim + "\n"
+                + "Nama      : " + nama + "\n"
+                + "JK        : " + jk + "\n"
+                + "Prodi     : " + prodi + "\n"
+                + "No. HP    : " + hp + "\n"
+                + "Email     : " + email + "\n"
+                + "Kursus    : " + kursus + "\n"
+                + "Fasilitas :\n" + fasilitas
+                + "Total Bayar: Rp" + String.format("%,.0f", total) + "\n"
+                + "Status    : Tersimpan ke database"
+            );
+            JOptionPane.showMessageDialog(this, "Pendaftaran berhasil disimpan.", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Gagal memproses pendaftaran: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    // Variables declaration
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {
+        int jawab = JOptionPane.showConfirmDialog(
+            this,
+            "Kosongkan seluruh input dan ringkasan?",
+            "Konfirmasi Reset",
+            JOptionPane.YES_NO_OPTION
+        );
+        if (jawab == JOptionPane.YES_OPTION) {
+            resetForm();
+        }
+    }
+
+    // Variables declaration - do not modify
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JCheckBox cbModul;
@@ -990,46 +561,7 @@ public class FormPendaftaranKursus extends JFrame {
     private javax.swing.JTextField txtKodeAkses;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtNim;
-    private javax.swing.JTextField txtProdi;
     private javax.swing.JTextArea txtRingkasan;
+    private javax.swing.JTextField txtProdi;
     // End of variables declaration
-=======
-    private void resetForm() {
-        txtNama.setText("");
-        txtKodeAkses.setText("");
-        groupJenis.clearSelection();
-        cmbKursus.setSelectedIndex(0);
-        cbModul.setSelected(false);
-        cbSertifikat.setSelected(false);
-        cbRekaman.setSelected(false);
-        txtRingkasan.setText("");
-        txtNama.requestFocus();
-    }
-
-    private String formatRupiah(double nilai) {
-        String angka = String.format(Locale.US, "%,.0f", nilai).replace(',', '.');
-        return "Rp" + angka;
-    }
-
-    public static void main(String[] args) {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(FormPendaftaranKursus.class.getName())
-                    .log(java.util.logging.Level.WARNING, "Nimbus tidak dapat diaktifkan", ex);
-        }
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new FormPendaftaranKursus().setVisible(true);
-            }
-        });
-    }
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
 }

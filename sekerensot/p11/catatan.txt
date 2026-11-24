@@ -1,0 +1,74 @@
+================================================================================
+LAPORAN UJI COBA APLIKASI - PRAKTIKUM PBO (PERTEMUAN 11)
+Materi  : Autentikasi Pengguna, Kontrol Hak Akses, Manajemen Window & Navigasi
+Sistem  : SIKURSUS Desktop (Java Swing + MySQL)
+Penyusun: Maulana Ishaq
+NIM     : 2924024
+Tanggal : 24 November 2026
+================================================================================
+
+I. REKAPITULASI PENGUJIAN SKENARIO T01 - T12
+--------------------------------------------------------------------------------
+
+[BERHASIL] T01 - Input username dan password dikosongkan saat klik Login
+           Catatan : Sistem menampilkan notifikasi "Username dan password wajib
+                     diisi." dan form login tetap terbuka.
+
+[BERHASIL] T02 - Username valid namun password tidak sesuai
+           Catatan : Muncul dialog "Login gagal. Periksa username, password,
+                     atau status user.", kolom pwdPassword dibersihkan, lalu
+                     kursor fokus kembali ke field password.
+
+[BERHASIL] T03 - Autentikasi menggunakan akun ADMIN (admin / Admin@123)
+           Catatan : Jendela LoginFrame ditutup via dispose(), DashboardFrame
+                     muncul dengan label sesi admin (ADMIN), seluruh akses Master
+                     Data, Transaksi, dan Laporan terbuka penuh.
+
+[BERHASIL] T04 - Autentikasi menggunakan akun OPERATOR (operator / Operator@123)
+           Catatan : DashboardFrame tampil dengan sesi operator (OPERATOR);
+                     akses Data Peserta, Transaksi, dan Laporan tersedia,
+                     sedangkan Data Instruktur, Program Kursus, dan Jadwal Kelas
+                     dinonaktifkan.
+
+[BERHASIL] T05 - Menekan menu/kartu Peserta sebanyak 5 kali beruntun
+           Catatan : WindowManager mempertahankan satu instance aktif saja
+                     dan mengangkat jendela tersebut ke depan tanpa duplikasi.
+
+[BERHASIL] T06 - Menutup jendela Peserta lewat tombol close (X)
+           Catatan : Jendela peserta ter-dispose dengan benar sementara
+                     DashboardFrame tetap menyala tanpa gangguan.
+
+[BERHASIL] T07 - Membuka kembali menu Peserta setelah sempat ditutup
+           Catatan : WindowManager menginisiasi instance baru dan
+                     menampilkannya kembali dengan normal.
+
+[BERHASIL] T08 - Membuka modul Kursus, Instruktur, dan Kelas pada sesi ADMIN
+           Catatan : Masing-masing form (KursusFrame, InstrukturFrame,
+                     KelasFrame) dapat dibuka saat DashboardFrame tetap aktif.
+
+[BERHASIL] T09 - Proses Logout saat masih ada jendela form anak terbuka
+           Catatan : Dialog konfirmasi logout muncul; saat dipilih Yes,
+                     WindowManager.closeAll() menutup seluruh window anak,
+                     UserSession.clear() mereset sesi, DashboardFrame ditutup,
+                     dan tampilan kembali ke LoginFrame.
+
+[BERHASIL] T10 - Mencoba login ketika layanan MySQL dihentikan
+           Catatan : Aplikasi menangkap SQLException dan menampilkan pesan
+                     "Database Error: Tidak dapat mengakses database" tanpa
+                     menyebabkan force close / crash.
+
+[BERHASIL] T11 - Memindahkan direktori project ke path/folder lain
+           Catatan : Ikon pada menu tetap terbaca karena menggunakan
+                     getClass().getResource() berbasis classpath, bukan path
+                     lokal absolut.
+
+[BERHASIL] T12 - Memilih opsi Tutup Aplikasi / keluar program
+           Catatan : Muncul konfirmasi keluar; pilihan Yes mengakhiri proses
+                     aplikasi secara menyeluruh lewat System.exit(0).
+
+================================================================================
+II. KESIMPULAN SINGKAT
+Seluruh 12 skenario pengujian (T01 s.d. T12) berjalan sesuai rancangan alur
+autentikasi, pembatasan hak akses berbasis role, pengelolaan jendela tunggal
+via WindowManager, serta penanganan error database dan resource.
+================================================================================

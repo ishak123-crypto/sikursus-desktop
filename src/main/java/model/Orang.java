@@ -5,54 +5,50 @@ public class Orang {
     private String nama;
     private String noHp;
 
-<<<<<<< HEAD
-    public Orang() {}
-
-    public Orang(int id, String nama, String noHp) {
-        this.id = id;
-        this.nama = nama;
-        this.noHp = noHp;
+    public Orang() {
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    public String getNama() { return nama; }
-    public void setNama(String nama) { this.nama = nama; }
-
-    public String getNoHp() { return noHp; }
-    public void setNoHp(String noHp) { this.noHp = noHp; }
-=======
     public Orang(int id, String nama, String noHp) {
         setId(id);
         setNama(nama);
         setNoHp(noHp);
     }
 
-    public int getId() { return id; }
-    public String getNama() { return nama; }
-    public String getNoHp() { return noHp; }
+    public int getId() {
+        return id;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getNoHp() {
+        return noHp;
+    }
 
     public void setId(int id) {
-        if (id < 0) throw new IllegalArgumentException("ID tidak boleh negatif");
+        if (id < 0) {
+            throw new IllegalArgumentException("ID tidak boleh negatif");
+        }
         this.id = id;
     }
 
     public void setNama(String nama) {
-        if (nama == null || nama.trim().isEmpty())
+        if (nama == null || nama.trim().isEmpty()) {
             throw new IllegalArgumentException("Nama wajib diisi");
+        }
         this.nama = nama.trim();
     }
 
     public void setNoHp(String noHp) {
         String nilai = noHp == null ? "" : noHp.trim();
-        if (!nilai.isEmpty() && !nilai.matches("[0-9+\\- ]{8,20}"))
+        if (!nilai.isEmpty() && !nilai.matches("[0-9+\\- ]{8,20}")) {
             throw new IllegalArgumentException("Format nomor HP tidak valid");
+        }
         this.noHp = nilai;
     }
 
     public String getInfo() {
         return getNama() + " | HP: " + (getNoHp().isEmpty() ? "-" : getNoHp());
     }
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
 }

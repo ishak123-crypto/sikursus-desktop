@@ -5,11 +5,7 @@ import model.Kursus;
 import model.Peserta;
 
 /**
-<<<<<<< HEAD
- * Uji sederhana tanpa library tambahan untuk membuktikan validasi.
-=======
  * Uji sederhana tanpa library tambahan untuk membuktikan validasi Pertemuan 6.
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
  */
 public class UjiValidasi {
 
@@ -19,16 +15,13 @@ public class UjiValidasi {
 
     public static void main(String[] args) {
         int pass = 0;
-        int total = 9;
+        int total = 10;
 
         pass += harusBerhasil("Peserta valid", new Aksi() {
             @Override
             public void jalankan() {
-<<<<<<< HEAD
                 new Peserta("252001", "Alya", "P", "Informatika", "081234567890", "alya@email.com");
-=======
                 new Peserta(1, "Alya", "081234567890", "252001", "Informatika");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
@@ -39,61 +32,45 @@ public class UjiValidasi {
             }
         });
 
-<<<<<<< HEAD
         pass += harusDitolak("Jenis kelamin kosong", new Aksi() {
             @Override
             public void jalankan() {
                 new Peserta("252001", "Alya", "", "Informatika", "081234567890", "alya@email.com");
-=======
+            }
+        });
+
         pass += harusDitolak("ID negatif", new Aksi() {
             @Override
             public void jalankan() {
                 new Peserta(-1, "Alya", "081234567890", "252001", "Informatika");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
         pass += harusDitolak("Nama kosong", new Aksi() {
             @Override
             public void jalankan() {
-<<<<<<< HEAD
-                new Peserta("252001", "", "P", "Informatika", "081234567890", "alya@email.com");
-=======
                 new Peserta(1, "", "081234567890", "252001", "Informatika");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
         pass += harusDitolak("No HP huruf", new Aksi() {
             @Override
             public void jalankan() {
-<<<<<<< HEAD
-                new Peserta("252001", "Alya", "P", "Informatika", "telepon", "alya@email.com");
-=======
                 new Peserta(1, "Alya", "telepon", "252001", "Informatika");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
         pass += harusDitolak("NIM kosong", new Aksi() {
             @Override
             public void jalankan() {
-<<<<<<< HEAD
-                new Peserta("", "Alya", "P", "Informatika", "081234567890", "alya@email.com");
-=======
                 new Peserta(1, "Alya", "081234567890", "", "Informatika");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
         pass += harusDitolak("Prodi kosong", new Aksi() {
             @Override
             public void jalankan() {
-<<<<<<< HEAD
-                new Peserta("252001", "Alya", "P", "", "081234567890", "alya@email.com");
-=======
                 new Peserta(1, "Alya", "081234567890", "252001", "");
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
             }
         });
 
@@ -139,8 +116,4 @@ public class UjiValidasi {
             return 1;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bcfbb203a7c39bb92013a5302af4ad8f93834c0f
